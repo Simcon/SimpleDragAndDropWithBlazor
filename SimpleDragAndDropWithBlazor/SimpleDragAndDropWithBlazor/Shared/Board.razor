@@ -1,0 +1,13 @@
+﻿<div class="job-status">
+
+    <h4>@CardStatus (@Cards.Count())</h4>
+
+    <ul>
+
+        @foreach (var card in Cards)
+        {
+            <Card CardModel="card" />
+        }
+
+    </ul>
+</div>
