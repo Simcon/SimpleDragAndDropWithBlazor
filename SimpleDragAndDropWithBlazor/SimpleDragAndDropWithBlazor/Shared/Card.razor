@@ -1,23 +1,6 @@
 ﻿
-
-<li title="@CardModel.Description" class="mb-4 bg-white overflow-hidden shadow rounded-lg">
-
-    <div class="px-4 py-5 sm:p-4">
-
-
-        <p class="font-semibold text-xl">@CardModel.Description</p>
-        @*<p class="last-updated"><small>Last Updated</small> @CardModel.LastUpdated.ToString("HH:mm.ss tt")</p>*@
-        @foreach (var item in CardModel.Items)
-        {
-            <Item ItemModel="item" CardModel="CardModel" />
-        }
-
-
-        <button @onclick="OnToDo" class="inline-flex items-center px-2.5 py-1.5 border border-gray-300 shadow-sm text-xs font-medium rounded text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">todo</button>
-        <button @onclick="OnStart" class="inline-flex items-center px-2.5 py-1.5 border border-gray-300 shadow-sm text-xs font-medium rounded text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">start</button>
-        <button @onclick="OnComplete" class="inline-flex items-center px-2.5 py-1.5 border border-gray-300 shadow-sm text-xs font-medium rounded text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">complete</button>
-    
-
+<div class="muuri-board-item">
+    <div class="muuri-board-item-content">
+        @CardModel.Description
     </div>
-
-</li>
+</div>

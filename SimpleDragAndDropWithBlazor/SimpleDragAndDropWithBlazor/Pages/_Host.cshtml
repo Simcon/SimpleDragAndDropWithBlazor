@@ -10,10 +10,14 @@
     <title>Simple Drag And Drop With Blazor</title>
     <base href="~/" />
     <link href="css/tailwind.css" rel="stylesheet" />
+    <link href="css/my-muuri.css" rel="stylesheet" />
     <link href="https://rsms.me/inter/inter.css" rel="stylesheet" rel="preload" as="font">
 </head>
 <body>
     <app>@(await Html.RenderComponentAsync<App>(RenderMode.Server))</app>
+    <script src="https://cdn.jsdelivr.net/npm/web-animations-js@2.3.2/web-animations.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/haltu/muuri@0.9.3/dist/muuri.min.js"></script>
+    <script src="~/js/my-muuri.js"></script>
     <script src="_framework/blazor.server.js"></script>
 </body>
 </html>

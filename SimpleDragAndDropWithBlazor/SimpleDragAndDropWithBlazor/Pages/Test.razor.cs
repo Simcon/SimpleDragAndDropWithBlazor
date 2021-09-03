@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Components;
+using Microsoft.JSInterop;
 using SimpleDragAndDropWithBlazor.Models;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace SimpleDragAndDropWithBlazor.Pages
 {
@@ -9,6 +11,17 @@ namespace SimpleDragAndDropWithBlazor.Pages
     {
         List<CardModel> Cards = new List<CardModel>();
         public List<string> Output { get; set; } = new List<string>();
+
+        [Inject] IJSRuntime JS { get; set; }
+
+        protected override async Task OnAfterRenderAsync(bool firstRender)
+        {
+            if (firstRender)
+            {
+                await JS.InvokeVoidAsync("initMuuri");
+            }
+            await base.OnAfterRenderAsync(firstRender);
+        }
 
         protected override void OnInitialized()
         {
