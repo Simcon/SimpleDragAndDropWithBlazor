@@ -2,15 +2,22 @@
     console.log('initMuuri');
 
     var dragContainer = document.querySelector('.muuri-drag-container');
-    var itemContainers = [].slice.call(document.querySelectorAll('.muuri-board-column-content'));
+    var cardContainers = [].slice.call(document.querySelectorAll('.muuri-board-column-content'));
     var columnGrids = [];
     var boardGrid;
 
+    // Init board grid so we can drag those columns around.
+    boardGrid = new Muuri('.muuri-board', {
+        dragEnabled: true,
+        dragHandle: '.muuri-board-column-header'
+    });
+
     // Init the column grids so we can drag those items around.
-    itemContainers.forEach(function (container) {
+    cardContainers.forEach(function (container) {
         var grid = new Muuri(container, {
             items: '.muuri-board-item',
             dragEnabled: true,
+            dragHandle: '.card-handle',
             dragSort: function () {
                 return columnGrids;
             },
@@ -41,11 +48,5 @@
             });
 
         columnGrids.push(grid);
-    });
-
-    // Init board grid so we can drag those columns around.
-    boardGrid = new Muuri('.muuri-board', {
-        dragEnabled: true,
-        dragHandle: '.muuri-board-column-header'
     });
 };
