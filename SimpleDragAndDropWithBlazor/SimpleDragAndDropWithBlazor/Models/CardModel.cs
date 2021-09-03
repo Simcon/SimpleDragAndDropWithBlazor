@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace SimpleDragAndDropWithBlazor.Models
 {
@@ -8,6 +9,7 @@ namespace SimpleDragAndDropWithBlazor.Models
         public CardStatuses Status { get; set; }
         public string Description { get; set; }
         public DateTime LastUpdated { get; set; }
+        public List<ItemModel> Items { get; set; } = new List<ItemModel>();
     }
 
     public enum CardStatuses
@@ -15,5 +17,11 @@ namespace SimpleDragAndDropWithBlazor.Models
         Todo,
         Started,
         Completed
+    }
+
+    public class ItemModel
+    {
+        public int Id { get; set; }
+        public string Description { get; set; }
     }
 }

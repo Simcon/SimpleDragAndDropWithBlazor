@@ -12,16 +12,21 @@ namespace SimpleDragAndDropWithBlazor.Shared
         [Parameter] public RenderFragment ChildContent { get; set; }
         [Parameter] public EventCallback<CardModel> OnStatusUpdated { get; set; }
 
-        public CardModel Payload { get; set; }
+        public CardModel CardPayload { get; set; }
 
         public async Task UpdateCardAsync()
         {
-            var job = Cards.SingleOrDefault(x => x.Id == Payload.Id);
+            var job = Cards.SingleOrDefault(x => x.Id == CardPayload.Id);
 
             if (job != null)
             {
-                await OnStatusUpdated.InvokeAsync(Payload);
+                await OnStatusUpdated.InvokeAsync(CardPayload);
             }
+        }
+
+        public async Task UpdateItemAsync()
+        {
+            StateHasChanged();
         }
     }
 }
