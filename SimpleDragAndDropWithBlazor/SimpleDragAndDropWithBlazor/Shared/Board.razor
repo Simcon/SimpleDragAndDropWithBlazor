@@ -1,13 +1,11 @@
-﻿<div class="muuri-board-column">
-    <div class="muuri-board-column-container">
-        <div class="muuri-board-column-header">HEADING</div>
-        <div class="muuri-board-column-content-wrapper">
-            <div class="muuri-board-column-content">
-                @foreach (var card in Cards)
-                {
-                    <Card CardModel="card" />
-                }
-            </div>
+﻿<div class="muuri-board-column absolute">
+    <div class="muuri-board-column-header">HEADING</div>
+    <div class="muuri-board-column-content-wrapper relative overflow-y-auto">
+        <div class="muuri-board-column-content min-h-full">
+            @foreach (var card in Cards)
+            {
+                <Card CardModel="card" />
+            }
         </div>
     </div>
 </div>
