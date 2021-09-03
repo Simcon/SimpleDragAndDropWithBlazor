@@ -20,19 +20,19 @@
     height: calc(100vh - 290px);
 }
 
-.muuri-board-item {
+.muuri-card {
     width: calc(100% - 16px);
 }
 
-.muuri-board-item.muuri-item-releasing {
+.muuri-card.muuri-item-releasing {
     z-index: 9998;
 }
 
-.muuri-board-item.muuri-item-dragging {
+.muuri-card.muuri-item-dragging {
     z-index: 9999;
     cursor: move;
 }
 
-.muuri-board-item.muuri-item-hidden {
+.muuri-card.muuri-item-hidden {
     z-index: 0;
 }

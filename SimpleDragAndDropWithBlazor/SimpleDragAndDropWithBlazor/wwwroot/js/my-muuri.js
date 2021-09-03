@@ -15,9 +15,9 @@
     // Init the column grids so we can drag those items around.
     cardContainers.forEach(function (container) {
         var grid = new Muuri(container, {
-            items: '.muuri-board-item',
+            items: '.muuri-card',
             dragEnabled: true,
-            dragHandle: '.card-handle',
+            dragHandle: '.muuri-card-handle',
             dragSort: function () {
                 return columnGrids;
             },
