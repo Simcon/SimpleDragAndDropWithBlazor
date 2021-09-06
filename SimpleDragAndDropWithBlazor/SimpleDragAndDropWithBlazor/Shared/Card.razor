@@ -1,12 +1,5 @@
-﻿
-<div class="muuri-card absolute">
-    <div class="muuri-card-content">
-        <div class="mb-4 bg-white overflow-hidden shadow rounded-lg">
-            <div class="px-4 py-5 sm:p-4">
-                <div class="muuri-card-handle">
-                    @CardModel.Description
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+﻿<CardLayout>
+    <CascadingValue Value="CardModel">
+        <CardHeader />
+    </CascadingValue>
+</CardLayout>
