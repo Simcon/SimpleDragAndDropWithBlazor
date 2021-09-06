@@ -2,10 +2,8 @@
 
 namespace SimpleDragAndDropWithBlazor.Shared.Layouts
 {
-    public partial class CardLayout : ComponentBase
+    public partial class SectionLayout : ComponentBase
     {
         [Parameter] public RenderFragment ChildContent { get; set; }
-        [Parameter] public int Id { get; set; }
-        [Parameter] public string Status { get; set; }
     }
 }

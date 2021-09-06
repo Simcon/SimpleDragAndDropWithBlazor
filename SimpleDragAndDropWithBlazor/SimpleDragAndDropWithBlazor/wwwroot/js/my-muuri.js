@@ -41,6 +41,7 @@
                 item.getElement().style.width = '';
                 item.getElement().style.height = '';
                 item.getGrid().refreshItems([item]);
+                doit();
             })
             .on('layoutStart', function () {
                 console.log('layoutStart');
@@ -49,9 +50,19 @@
 
         columnGrids.push(grid);
     });
+
+    doit = function (order) {
+        var columns = columnGrids.map(column => {
+            return column.getItems()
+                .map(item => { return { id: item.getElement().getAttribute('data-id'), status: item.getElement().getAttribute('data-status') } });
+        });
+        console.log(columns);
+        ref.invokeMethodAsync('UpdateLayoutCaller', columns);
+    }
 };
 
-window.updateMessageCaller = (dotnetHelper) => {
-    dotnetHelper.invokeMethodAsync('UpdateMessageCaller');
-    dotnetHelper.dispose();
-  }
+window.setref = (ref) => {
+    window.ref = ref;
+}
+
+

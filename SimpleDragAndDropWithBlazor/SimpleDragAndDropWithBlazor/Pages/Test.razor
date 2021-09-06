@@ -1,9 +1,13 @@
 ﻿@page "/"
 
-<Profile />
+    <SectionLayout>
+        <Profile/>
+    </SectionLayout>
 
-<BoardContainer Cards="Cards" OnStatusUpdated="HandleStatusUpdated">
-    <Board CardStatus="CardStatuses.Todo" />
-    <Board CardStatus="CardStatuses.Started" />
-    <Board CardStatus="CardStatuses.Completed" />
-</BoardContainer>
+    <SectionLayout>
+        <BoardContainer Cards="Cards" OnStatusUpdated="HandleStatusUpdated">
+            <Board CardStatus="CardStatuses.Todo" />
+            <Board CardStatus="CardStatuses.Started" />
+            <Board CardStatus="CardStatuses.Completed" />
+        </BoardContainer>
+    </SectionLayout>
