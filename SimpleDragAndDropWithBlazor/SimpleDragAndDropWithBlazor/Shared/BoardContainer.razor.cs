@@ -26,7 +26,7 @@ namespace SimpleDragAndDropWithBlazor.Shared
 
         public async Task UpdateItemAsync()
         {
-            StateHasChanged();
+            await InvokeAsync(() => StateHasChanged());
         }
     }
 }

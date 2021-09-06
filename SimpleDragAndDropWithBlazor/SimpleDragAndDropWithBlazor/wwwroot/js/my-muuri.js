@@ -50,3 +50,8 @@
         columnGrids.push(grid);
     });
 };
+
+window.updateMessageCaller = (dotnetHelper) => {
+    dotnetHelper.invokeMethodAsync('UpdateMessageCaller');
+    dotnetHelper.dispose();
+  }
