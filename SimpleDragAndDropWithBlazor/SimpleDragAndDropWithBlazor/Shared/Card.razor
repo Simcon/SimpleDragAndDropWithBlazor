@@ -1,5 +1,9 @@
-﻿<CardLayout Id="CardModel.Id" Status="CardModel.Status">
+﻿<CardLayout Id="CardModel.Id">
     <CascadingValue Value="CardModel">
         <CardHeader />
+        @foreach(var item in CardModel.Items)
+        {
+            <Item ItemModel="item" />
+        }
     </CascadingValue>
 </CardLayout>

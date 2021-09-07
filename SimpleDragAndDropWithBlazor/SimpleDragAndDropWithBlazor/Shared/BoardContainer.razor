@@ -1,5 +1,11 @@
 ﻿<BoardContainerLayout>
     <CascadingValue Value="this">
-        @ChildContent
+        @*<Board CardStatus="CardStatuses.Todo" />
+        <Board CardStatus="CardStatuses.Started" />
+        <Board CardStatus="CardStatuses.Completed" />*@
+        @foreach(var board in Boards)
+        {
+            <Board CardStatus="@board.Title" />
+        }
     </CascadingValue>
 </BoardContainerLayout>

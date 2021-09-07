@@ -8,7 +8,7 @@ namespace SimpleDragAndDropWithBlazor.Shared
     public partial class Board : ComponentBase
     {
         [CascadingParameter] BoardContainer Container { get; set; }
-        [Parameter] public CardStatuses CardStatus { get; set; }
+        [Parameter] public string CardStatus { get; set; }
         List<CardModel> Cards = new List<CardModel>();
 
         protected override void OnParametersSet()

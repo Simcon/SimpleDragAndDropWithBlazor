@@ -1,4 +1,5 @@
 ﻿window.initMuuri = () => {
+
     console.log('initMuuri');
 
     var dragContainer = document.querySelector('.muuri-drag-container');
@@ -32,19 +33,16 @@
             },
         })
             .on('dragInit', function (item) {
-                console.log('dragInit');
                 item.getElement().style.width = item.getWidth() + 'px';
                 item.getElement().style.height = item.getHeight() + 'px';
             })
             .on('dragReleaseEnd', function (item) {
-                console.log('dragReleaseEnd');
                 item.getElement().style.width = '';
                 item.getElement().style.height = '';
                 item.getGrid().refreshItems([item]);
                 doit();
             })
             .on('layoutStart', function () {
-                console.log('layoutStart');
                 boardGrid.refreshItems().layout();
             });
 
@@ -54,7 +52,7 @@
     doit = function (order) {
         var columns = columnGrids.map(column => {
             return column.getItems()
-                .map(item => { return { id: item.getElement().getAttribute('data-id'), status: item.getElement().getAttribute('data-status') } });
+                .map(item => { return { id: item.getElement().getAttribute('data-id') } });
         });
         console.log(columns);
         ref.invokeMethodAsync('UpdateLayoutCaller', columns);
