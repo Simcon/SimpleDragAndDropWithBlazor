@@ -11,7 +11,6 @@ namespace SimpleDragAndDropWithBlazor.Shared
         [CascadingParameter] public BoardContainer Container { get; set; }
         [CascadingParameter] public CardModel CardModel { get; set; }
         [Inject] public IJSRuntime JS { get; set; }
-        [Inject] public NavigationManager Nav { get; set; }
 
         private MessageUpdateInvokeHelper _messageUpdateInvokeHelper;
 
@@ -30,6 +29,7 @@ namespace SimpleDragAndDropWithBlazor.Shared
         {
             CardModel.IsDropdownVisible = !CardModel.IsDropdownVisible;
             await ApplyZIndex();
+            StateHasChanged();
         }
 
         public async Task OnFocusOut()
@@ -43,21 +43,6 @@ namespace SimpleDragAndDropWithBlazor.Shared
             var zIndex = CardModel.IsDropdownVisible ? "11" : "10";
             await JS.InvokeAsync<object>("applyStyleForElement",
                 new { id = $"cardlayout_{CardModel.Id}", attrib = "z-index", value = zIndex });
-        }
-
-        private void Button1Click()
-        {
-            Nav.NavigateTo("/test2");
-        }
-
-        private void Button2Click()
-        {
-            Nav.NavigateTo("/test2");
-        }
-
-        private void Button3Click()
-        {
-            Nav.NavigateTo("/test2");
         }
     }
 
