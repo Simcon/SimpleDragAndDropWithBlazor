@@ -1,7 +1,6 @@
 ﻿<CardLayout Id="CardModel.Id" IsDropdownVisible="CardModel.IsDropdownVisible">
     <CascadingValue Value="CardModel">
         <CardHeader />
-        <p>@CardModel.IsDropdownVisible</p>
         @foreach(var item in CardModel.Items)
         {
             <Item ItemModel="item" />
