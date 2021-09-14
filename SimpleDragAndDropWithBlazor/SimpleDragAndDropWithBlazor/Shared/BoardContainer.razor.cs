@@ -44,6 +44,7 @@ namespace SimpleDragAndDropWithBlazor.Shared
             var objref = DotNetObjectReference.Create(layoutUpdateInvokeHelper);
             await JS.InvokeVoidAsync("setref", objref);
             await JS.InvokeVoidAsync("initMuuri");
+            //await JS.InvokeVoidAsync("testEventListeners");
         }
 
         private async Task LayoutUpdate(LayoutChange[][] cards)

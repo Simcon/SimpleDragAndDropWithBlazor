@@ -11,45 +11,53 @@ namespace SimpleDragAndDropWithBlazor.Shared
         [CascadingParameter] public BoardContainer Container { get; set; }
         [CascadingParameter] public CardModel CardModel { get; set; }
         [Inject] public IJSRuntime JS { get; set; }
+        [Inject] public NavigationManager Nav { get; set; }
 
-        //public bool IsDropdownVisible { get; set; }
-        private MessageUpdateInvokeHelper messageUpdateInvokeHelper;
+        private MessageUpdateInvokeHelper _messageUpdateInvokeHelper;
 
         protected override void OnInitialized()
         {
-            messageUpdateInvokeHelper = new MessageUpdateInvokeHelper(UpdateMessage);
+            _messageUpdateInvokeHelper = new MessageUpdateInvokeHelper(UpdateMessage);
             base.OnInitialized();
         }
 
         public void UpdateMessage()
         {
-            //Container.up
+            //Container.some_method
         }
 
         public async Task OnClick()
         {
             CardModel.IsDropdownVisible = !CardModel.IsDropdownVisible;
-            await ShowHideDropdown();
+            await ApplyZIndex();
         }
 
         public async Task OnFocusOut()
         {
             CardModel.IsDropdownVisible = false;
-            await ShowHideDropdown();
+            await ApplyZIndex();
         }
 
-        private async Task ShowHideDropdown()
+        private async Task ApplyZIndex()
         {
-            if (CardModel.IsDropdownVisible)
-            {
-                await JS.InvokeAsync<object>("applyStyleForElement",
-                    new { id = $"cardlayout_{CardModel.Id}", attrib = "z-index", value = "11" });
-            }
-            else
-            {
-                await JS.InvokeAsync<object>("applyStyleForElement",
-                    new { id = $"cardlayout_{CardModel.Id}", attrib = "z-index", value = "10" });
-            }
+            var zIndex = CardModel.IsDropdownVisible ? "11" : "10";
+            await JS.InvokeAsync<object>("applyStyleForElement",
+                new { id = $"cardlayout_{CardModel.Id}", attrib = "z-index", value = zIndex });
+        }
+
+        private void Button1Click()
+        {
+            Nav.NavigateTo("/test2");
+        }
+
+        private void Button2Click()
+        {
+            Nav.NavigateTo("/test2");
+        }
+
+        private void Button3Click()
+        {
+            Nav.NavigateTo("/test2");
         }
     }
 

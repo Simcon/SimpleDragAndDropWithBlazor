@@ -83,5 +83,14 @@ window.setref = (ref) => {
 }
 
 window.applyStyleForElement = function (styleOp) {
-    document.getElementById(styleOp.id).style[styleOp.attrib] = styleOp.value;
+    var elem = document.getElementById(styleOp.id);
+    if (elem != null) {
+        elem.style[styleOp.attrib] = styleOp.value;
+    }
 }
+
+//window.testEventListeners = () => {
+//    console.log('setting listeners');
+//    document.getElementById('menu-0-item-0').addEventListener('click', true);
+//    console.log('set listeners');
+//}
