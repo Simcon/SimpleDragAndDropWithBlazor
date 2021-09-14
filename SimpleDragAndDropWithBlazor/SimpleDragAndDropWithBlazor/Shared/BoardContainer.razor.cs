@@ -37,14 +37,10 @@ namespace SimpleDragAndDropWithBlazor.Shared
             Cards = db.Item1;
             Boards = db.Item2;
             StateHasChanged();
-
             layoutUpdateInvokeHelper = new LayoutUpdateInvokeHelper(LayoutUpdate);
-            base.OnInitialized();
-
             var objref = DotNetObjectReference.Create(layoutUpdateInvokeHelper);
             await JS.InvokeVoidAsync("setref", objref);
             await JS.InvokeVoidAsync("initMuuri");
-            //await JS.InvokeVoidAsync("testEventListeners");
         }
 
         private async Task LayoutUpdate(LayoutChange[][] cards)

@@ -35,7 +35,7 @@
                 item.getElement().style.width = '';
                 item.getElement().style.height = '';
                 item.getGrid().refreshItems([item]);
-                doit();
+                saveLayout();
             })
             .on('layoutStart', function (items) {
                 console.log('layoutStart');
@@ -63,7 +63,7 @@
         dragHandle: '.muuri-board-column-header'
     });
 
-    doit = function (order) {
+    saveLayout = function (order) {
         var columns = columnGrids.map(column => {
             return column.getItems()
                 .map(item => { return { id: item.getElement().getAttribute('data-id') } });
@@ -72,11 +72,6 @@
         ref.invokeMethodAsync('UpdateLayoutCaller', columns);
     }
 };
-
-window.updateMessageCaller = (dotnetHelper) => {
-    dotnetHelper.invokeMethodAsync('UpdateMessageCaller');
-    dotnetHelper.dispose();
-}
 
 window.setref = (ref) => {
     window.ref = ref;
@@ -88,9 +83,3 @@ window.applyStyleForElement = function (styleOp) {
         elem.style[styleOp.attrib] = styleOp.value;
     }
 }
-
-//window.testEventListeners = () => {
-//    console.log('setting listeners');
-//    document.getElementById('menu-0-item-0').addEventListener('click', true);
-//    console.log('set listeners');
-//}
