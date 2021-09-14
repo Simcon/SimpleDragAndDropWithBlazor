@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage;
 using Microsoft.JSInterop;
 using SimpleDragAndDropWithBlazor.Models;
 using System;
@@ -18,7 +17,7 @@ namespace SimpleDragAndDropWithBlazor.Shared
         //[Parameter] public RenderFragment ChildContent { get; set; }
         [Parameter] public EventCallback<CardModel> OnStatusUpdated { get; set; }
         [Inject] IJSRuntime JS { get; set; }
-        [Inject] ProtectedSessionStorage ProtectedSessionStore { get; set; }
+        //[Inject] ProtectedSessionStorage ProtectedSessionStore { get; set; }
 
         public CardModel CardPayload { get; set; }
         private LayoutUpdateInvokeHelper layoutUpdateInvokeHelper;
@@ -167,6 +166,9 @@ namespace SimpleDragAndDropWithBlazor.Shared
                                     new DbItem { Id = 3, Description = "Third item" }
                                 }
                             },
+                            new DbCard { Id = 3, BoardId = "Board One", Title = "Call Ollie" },
+                            new DbCard { Id = 4, BoardId = "Board One", Title = "Fix bike tyre" },
+                            new DbCard { Id = 5, BoardId = "Board One", Title = "Finish blog post" },
                             new DbCard
                             {
                                 Id = 2, BoardId = "Board One", Title = "Go to the gym", Items = new List<DbItem>
@@ -176,9 +178,6 @@ namespace SimpleDragAndDropWithBlazor.Shared
                                     new DbItem { Id = 6, Description = "C item" }
                                 }
                             },
-                            new DbCard { Id = 3, BoardId = "Board One", Title = "Call Ollie" },
-                            new DbCard { Id = 4, BoardId = "Board One", Title = "Fix bike tyre" },
-                            new DbCard { Id = 5, BoardId = "Board One", Title = "Finiah blog post" },
                         }
           };
     }

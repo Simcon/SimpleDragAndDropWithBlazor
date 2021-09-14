@@ -10,6 +10,7 @@ namespace SimpleDragAndDropWithBlazor.Models
         public string Description { get; set; }
         public DateTime LastUpdated { get; set; }
         public List<ItemModel> Items { get; set; } = new List<ItemModel>();
+        public bool IsDropdownVisible { get; set; }
     }
 
     //public enum CardStatuses

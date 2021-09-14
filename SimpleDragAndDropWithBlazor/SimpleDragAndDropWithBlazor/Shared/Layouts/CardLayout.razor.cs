@@ -6,5 +6,8 @@ namespace SimpleDragAndDropWithBlazor.Shared.Layouts
     {
         [Parameter] public RenderFragment ChildContent { get; set; }
         [Parameter] public int Id { get; set; }
+        [Parameter] public bool IsDropdownVisible { get; set; }
+
+        private string CssClass => IsDropdownVisible ? "muuri-card absolute z-50" : "muuri-card absolute z-0";
     }
 }

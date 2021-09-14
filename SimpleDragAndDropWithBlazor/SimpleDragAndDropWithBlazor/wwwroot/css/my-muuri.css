@@ -1,5 +1,4 @@
-﻿
-.muuri-board {
+﻿.muuri-board {
     /*position: relative;*/
 }
 
@@ -8,11 +7,11 @@
 }
 
 .muuri-board-column.muuri-item-releasing {
-    z-index: 2;
+    z-index: 10;
 }
 
 .muuri-board-column.muuri-item-dragging {
-    z-index: 3;
+    z-index: 20;
     cursor: move;
 }
 
@@ -22,17 +21,18 @@
 
 .muuri-card {
     width: calc(100% - 16px);
+    z-index: 10;
 }
 
 .muuri-card.muuri-item-releasing {
-    z-index: 9998;
+    z-index: 30;
 }
 
 .muuri-card.muuri-item-dragging {
-    z-index: 9999;
+    z-index: 40;
     cursor: move;
 }
 
-.muuri-card.muuri-item-hidden {
+/*.muuri-card.muuri-item-hidden {
     z-index: 0;
-}
+}*/
